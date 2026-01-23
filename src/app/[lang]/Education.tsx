@@ -19,8 +19,8 @@ export default function Education({ lang }: Props) {
       <tbody>
         <tr>
           <td className="font-semibold">
-            <a href="https://www.hufs.ac.kr" target="_blank" rel="noreferrer">
-              {dictionary.education.한국외국어대학교[lang]}
+            <a href="https://www.hansung.ac.kr/" target="_blank" rel="noreferrer">
+              {dictionary.education.한성대학교[lang]}
             </a>
           </td>
 

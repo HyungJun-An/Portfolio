@@ -112,16 +112,16 @@ const SocialLink = ({ href, icon, text }: { href: string; icon: string; text: st
 
 const socialLinks = [
   {
-    href: 'https://github.com/MINJOOOONG',
+    href: 'https://github.com/HyungJun-An',
     icon: '/images/github.svg',
-    text: 'https://github.com/MINJOOOONG',
+    text: 'github.com/HyungJun-An',
   },
   {
-    href: 'https://www.linkedin.com/in/minjooooo/',
+    href: 'https://www.linkedin.com/in/%ED%98%95%EC%A4%80-%EC%95%88-90434b28b/',
     icon: '/images/LinkedIn_icon.svg',
-    text: 'www.linkedin.com/in/minjooooo',
+    text: 'linkedin.com/in/안형준',
   },
-  { href: 'https://velog.io/@gwak2837', icon: '/images/velog.png', text: 'velog.io/@gwak2837' },
+  { href: 'https://velog.io/@wns1265', icon: '/images/velog.png', text: 'velog.io/@wns1265' },
 ]
 
 export default function Hero({ lang }: Props) {
@@ -147,12 +147,12 @@ export default function Hero({ lang }: Props) {
 
             {/* Primary Contact - Most Important for Interviewers */}
             <div className="flex flex-col sm:flex-row gap-3 text-sm">
-              <ContactLink href="tel:010-4948-5089" icon={ICONS.phone}>
-                +82 10-4948-5089
+              <ContactLink href="tel:010-2313-6494" icon={ICONS.phone}>
+                +82 10-2313-6494
               </ContactLink>
               <span className="hidden sm:inline text-neutral-600">|</span>
-              <ContactLink href="mailto:zzz1577@naver.com" icon={ICONS.email}>
-                zzz1577@naver.com
+              <ContactLink href="mailto:wns1265@gmail.com" icon={ICONS.email}>
+                wns1265@gmail.com
               </ContactLink>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function Hero({ lang }: Props) {
           <InfoSection title={dictionary.hero.basicInfoTitle[lang]}>
             <InfoItem label={dictionary.hero.birthLabel[lang]}>{dictionary.hero.생일[lang]}</InfoItem>
             <InfoItem label={dictionary.hero.locationLabel[lang]}>
-              <ExternalLink href="https://naver.me/Fcg2bYyc">{dictionary.hero.주소[lang]}</ExternalLink>
+              <ExternalLink href="https://map.naver.com/p/search/%EB%A7%88%EB%91%90%EB%8F%99/address/14114177.7548928,4530917.8897283,%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B3%A0%EC%96%91%EC%8B%9C%20%EC%9D%BC%EC%82%B0%EB%8F%99%EA%B5%AC%20%EB%A7%88%EB%91%90%EB%8F%99?c=14.00,0,0,0,dh&isCorrectAnswer=true">{dictionary.hero.주소[lang]}</ExternalLink>
             </InfoItem>
             <InfoItem label={dictionary.hero.interestsLabel[lang]}>{dictionary.hero.interests[lang]}</InfoItem>
           </InfoSection>

@@ -2041,7 +2041,7 @@ export default function Portpolio({ date }: Props) {
         <li>Google Analytics를 활용한 사이트 통계 분석 경험이 있음</li>
       </dl>
       <div className="w-full text-center text-slate-800  mt-8">작성일: {date}</div>
-      <div className="w-full text-center text-slate-800 ">작성자: 서민주</div>
+      <div className="w-full text-center text-slate-800 ">작성자: 안형준</div>
     </>
   )
 }

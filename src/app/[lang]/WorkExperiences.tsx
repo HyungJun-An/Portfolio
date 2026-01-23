@@ -66,46 +66,44 @@ const PositionDetails = ({
 export default function WorkExperiences({ lang }: Props) {
   return (
     <ul className="space-y-8">
-      {/* TOSS */}
+      {/* H2O Staff */}
       <li className="relative">
-        <TimelineDot>{dictionary.workExperiences.현재[lang]}</TimelineDot>
+        <TimelineDot>{dictionary.workExperiences.과거[lang]}</TimelineDot>
 
         <ExperienceCard>
           <div className="flex justify-between items-start mb-4">
             <h3 className="text-lg font-bold">
-              {dictionary.workExperiences.TOSS_회사명[lang]}
+              {dictionary.workExperiences.H2O_STAFF_회사명[lang]}
             </h3>
             <span className="text-sm text-gray-500">
-              {dictionary.workExperiences.TOSS_기간[lang]}
+              {dictionary.workExperiences.H2O_STAFF_기간[lang]}
             </span>
           </div>
 
-          <p className="text-sm text-gray-700 mb-4">
-            {dictionary.workExperiences.TOSS_설명[lang]}
-          </p>
-
           <PositionDetails
-            title="QA Assistant"
-            team={dictionary.workExperiences.TOSS_팀[lang]}
-            period={dictionary.workExperiences.TOSS_기간[lang]}
+            title="금융사업부 (사원)"
+            team={dictionary.workExperiences.H2O_STAFF_팀[lang]}
+            period={dictionary.workExperiences.H2O_STAFF_기간[lang]}
           >
-            <p className="text-sm">{dictionary.workExperiences.TOSS_업무설명[lang]}</p>
-
-            <div className="flex flex-wrap gap-1">
-              {['Jira', 'TestRail', 'Regression Test', 'E-commerce QA'].map((tech) => (
-                <TechBadge key={tech} tech={tech} />
-              ))}
-            </div>
-
             <div className="space-y-2 mt-2">
               <Achievement>
                 <p className="text-sm text-gray-600">
-                  {dictionary.workExperiences.TOSS_성과1[lang]}
+                  {dictionary.workExperiences.H2O_STAFF_설명_증권사_실시간_시세_체결_프로세스_시각화[lang]}
                 </p>
               </Achievement>
               <Achievement>
                 <p className="text-sm text-gray-600">
-                  {dictionary.workExperiences.TOSS_성과2[lang]}
+                  {dictionary.workExperiences.H2O_STAFF_설명_DDS_기반_실시간_시세_체결_데이터를_시뮬레이션하는_프로세스_구축[lang]}
+                </p>
+              </Achievement>
+              <Achievement>
+                <p className="text-sm text-gray-600">
+                  {dictionary.workExperiences.H2O_STAFF_설명_증권사_Google_OTP_도입[lang]}
+                </p>
+              </Achievement>
+               <Achievement>
+                <p className="text-sm text-gray-600">
+                  {dictionary.workExperiences.H2O_STAFF_설명_중복_로그인_방지_솔루션_검증[lang]}
                 </p>
               </Achievement>
             </div>
@@ -113,7 +111,7 @@ export default function WorkExperiences({ lang }: Props) {
         </ExperienceCard>
       </li>
 
-      {/* RIWON */}
+      {/* H2O Intern */}
       <li className="relative">
         <TimelineDot className="bg-gray-100 text-gray-700">
           {dictionary.workExperiences.과거[lang]}
@@ -122,28 +120,29 @@ export default function WorkExperiences({ lang }: Props) {
         <ExperienceCard>
           <div className="flex justify-between items-start mb-4">
             <h3 className="text-lg font-bold">
-              {dictionary.workExperiences.RIWON_회사명[lang]}
+              {dictionary.workExperiences.H2O_INTERN_회사명[lang]}
             </h3>
             <span className="text-sm text-gray-500">
-              {dictionary.workExperiences.RIWON_기간[lang]}
+              {dictionary.workExperiences.H2O_INTERN_기간[lang]}
             </span>
           </div>
 
-          <p className="text-sm text-gray-700 mb-4">
-            {dictionary.workExperiences.RIWON_설명[lang]}
-          </p>
-
           <PositionDetails
-            title="QA Engineer"
-            team={dictionary.workExperiences.RIWON_팀[lang]}
-            period={dictionary.workExperiences.RIWON_기간[lang]}
+            title="솔루션사업부 (인턴)"
+            team={dictionary.workExperiences.H2O_INTERN_팀[lang]}
+            period={dictionary.workExperiences.H2O_INTERN_기간[lang]}
           >
-            <p className="text-sm">{dictionary.workExperiences.RIWON_업무설명[lang]}</p>
-
-            <div className="flex flex-wrap gap-1">
-              {['QA', 'Test Case', 'Bug Report', 'Game QA'].map((tech) => (
-                <TechBadge key={tech} tech={tech} />
-              ))}
+             <div className="space-y-2 mt-2">
+              <Achievement>
+                <p className="text-sm text-gray-600">
+                  {dictionary.workExperiences.H2O_INTERN_설명_서버_모니터링_환경_구축[lang]}
+                </p>
+              </Achievement>
+              <Achievement>
+                <p className="text-sm text-gray-600">
+                  {dictionary.workExperiences.H2O_INTERN_설명_메세징_솔루션_SDK_연동_검증[lang]}
+                </p>
+              </Achievement>
             </div>
           </PositionDetails>
         </ExperienceCard>

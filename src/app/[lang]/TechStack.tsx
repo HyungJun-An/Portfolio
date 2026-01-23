@@ -1,27 +1,22 @@
 import {
-  siCloudflare,
-  siCss,
-  siDatadog,
-  siDocker,
-  siDrizzle,
-  siElasticsearch,
-  siGoogleanalytics,
-  siGooglecloud,
-  siJavascript,
-  siNextdotjs,
-  siNodedotjs,
-  siPostgresql,
-  siPwa,
-  siPython,
-  siReact,
+  siJava,
+  siSpring,
+  siFastapi,
+  siMysql,
+  siMariadb,
   siRedis,
-  siSentry,
-  siSocketdotio,
-  siSupabase,
-  siTailwindcss,
-  siTypescript,
-  siVercel,
-  siVitest,
+  siMongodb,
+  siNginx,
+  siJenkins,
+  siAmazonrds,
+  siGithubactions,
+  siJira,
+  siSlack,
+  siFigma,
+  siGit,
+  siGrafana,
+  siC,
+  siJavascript,
 } from 'simple-icons'
 
 type TechItem = {
@@ -41,7 +36,7 @@ type TechCategory = {
 
 const techCategories: TechCategory[] = [
   {
-    title: 'Languages',
+    title: 'Language',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
@@ -55,35 +50,9 @@ const techCategories: TechCategory[] = [
     color: 'border-blue-100',
     iconColor: 'text-blue-600',
     items: [
-      { name: 'JavaScript (ES2023)', href: 'https://javascript.info/', icon: siJavascript },
-      { name: 'TypeScript', href: 'https://www.typescriptlang.org/', icon: siTypescript },
-      { name: 'CSS3', href: 'https://developer.mozilla.org/en-US/docs/Web/CSS', icon: siCss },
-      { name: 'Python', href: 'https://www.python.org/', icon: siPython },
-      { name: 'SQL', href: 'https://en.wikipedia.org/wiki/SQL', icon: null },
-    ],
-    featured: ['TypeScript', 'JavaScript (ES2023)'],
-  },
-  {
-    title: 'Frontend',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        />
-      </svg>
-    ),
-    color: 'border-purple-100',
-    iconColor: 'text-purple-600',
-    items: [
-      { name: 'Next.js App Router', href: 'https://nextjs.org/', icon: siNextdotjs },
-      { name: 'React.js', href: 'https://react.dev/', icon: siReact },
-      { name: 'Tailwind CSS', href: 'https://tailwindcss.com/', icon: siTailwindcss },
-      { name: 'Zustand', href: 'https://zustand-demo.pmnd.rs/', icon: null },
-      { name: 'Playwright', href: 'https://playwright.dev/', icon: null },
-      { name: 'PWA', href: 'https://web.dev/progressive-web-apps/', icon: siPwa },
+      { name: 'Java', href: 'https://www.java.com/', icon: siJava },
+      { name: 'C', href: 'https://en.wikipedia.org/wiki/C_(programming_language)', icon: siC },
+      { name: 'JavaScript', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', icon: siJavascript },
     ],
   },
   {
@@ -101,17 +70,15 @@ const techCategories: TechCategory[] = [
     color: 'border-green-100',
     iconColor: 'text-green-600',
     items: [
-      { name: 'Node.js', href: 'https://nodejs.org/en/', icon: siNodedotjs },
-      { name: 'Socket.IO', href: 'https://socket.io/', icon: siSocketdotio },
-      { name: 'Drizzle ORM', href: 'https://orm.drizzle.team/', icon: siDrizzle },
-      { name: 'Docker', href: 'https://www.docker.com/', icon: siDocker },
-      { name: 'PostgreSQL', href: 'https://www.postgresql.org/', icon: siPostgresql },
-      { name: 'Redis', href: 'https://redis.io/', icon: siRedis },
-      { name: 'Elasticsearch', href: 'https://www.elastic.co/kr/enterprise-search', icon: siElasticsearch },
+      { name: 'Spring Boot', href: 'https://spring.io/projects/spring-boot', icon: siSpring },
+      { name: 'FastAPI', href: 'https://fastapi.tiangolo.com/', icon: siFastapi },
+      { name: 'Spring Data JPA', href: 'https://spring.io/projects/spring-data-jpa', icon: siSpring },
+      { name: 'SQLAlchemy', href: 'https://www.sqlalchemy.org/', icon: null },
+      { name: 'QueryDSL', href: 'http://querydsl.com/', icon: null },
     ],
   },
   {
-    title: 'Cloud',
+    title: 'Infra/DB',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
@@ -125,15 +92,18 @@ const techCategories: TechCategory[] = [
     color: 'border-sky-100',
     iconColor: 'text-sky-600',
     items: [
-      { name: 'Vercel', href: 'https://vercel.com/', icon: siVercel },
-      { name: 'Supabase', href: 'https://supabase.com/', icon: siSupabase },
-      { name: 'Cloudflare', href: 'https://www.cloudflare.com/', icon: siCloudflare },
-      { name: 'Google Cloud (Cloud Run)', href: 'https://cloud.google.com/gcp/', icon: siGooglecloud },
-      { name: 'AWS (RDS, EC2, S3)', href: 'https://aws.amazon.com/ko/', icon: null },
+      { name: 'MySQL', href: 'https://www.mysql.com/', icon: siMysql },
+      { name: 'MariaDB', href: 'https://mariadb.org/', icon: siMariadb },
+      { name: 'Redis', href: 'https://redis.io/', icon: siRedis },
+      { name: 'MongoDB', href: 'https://www.mongodb.com/', icon: siMongodb },
+      { name: 'Nginx', href: 'https://www.nginx.com/', icon: siNginx },
+      { name: 'Jenkins', href: 'https://www.jenkins.io/', icon: siJenkins },
+      { name: 'AWS EC2 + RDS', href: 'https://aws.amazon.com/ec2/', icon: siAmazonrds },
+      { name: 'GitHub Actions', href: 'https://github.com/features/actions', icon: siGithubactions },
     ],
   },
   {
-    title: 'Operations',
+    title: 'ETC',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
@@ -153,31 +123,11 @@ const techCategories: TechCategory[] = [
     color: 'border-orange-100',
     iconColor: 'text-orange-600',
     items: [
-      { name: 'Sentry', href: 'https://sentry.io/welcome/', icon: siSentry },
-      { name: 'Datadog', href: 'https://datadoghq.com/', icon: siDatadog },
-      { name: 'Vitest', href: 'https://vitest.dev/', icon: siVitest },
-      { name: 'Google Analytics', href: 'https://analytics.google.com/analytics/web/', icon: siGoogleanalytics },
-      { name: 'Amplitude', href: 'https://amplitude.com/', icon: null },
-      { name: 'GrowthBook', href: 'https://www.growthbook.io/', icon: null },
-    ],
-  },
-  {
-    title: 'AI',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-        />
-      </svg>
-    ),
-    color: 'border-rose-100',
-    iconColor: 'text-rose-600',
-    items: [
-      { name: 'ComfyUI', href: 'https://github.com/comfyanonymous/ComfyUI', icon: null },
-      { name: 'LoRA (Kohya SS)', href: 'https://github.com/bmaltais/kohya_ss', icon: null },
+      { name: 'Jira', href: 'https://www.atlassian.com/software/jira', icon: siJira },
+      { name: 'Slack', href: 'https://slack.com/', icon: siSlack },
+      { name: 'Figma', href: 'https://www.figma.com/', icon: siFigma },
+      { name: 'Git', href: 'https://git-scm.com/', icon: siGit },
+      { name: 'Grafana', href: 'https://grafana.com/', icon: siGrafana },
     ],
   },
 ]

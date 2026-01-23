@@ -2,7 +2,7 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Fragment } from 'react'
+import { Fragment, PropsWithChildren } from 'react'
 
 import { APPLICATION_NAME } from '../../common/constants'
 import { PageProps } from '../../common/types'
@@ -27,10 +27,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const lang = (await params).lang as 'ko' | 'en'
 
   if (lang === 'ko') return { title: APPLICATION_NAME }
-  if (lang === 'en') return { title: `Minjoo ${getISODate(new Date())} Resume Portpolio` }
+  if (lang === 'en') return { title: `HyungJun An ${getISODate(new Date())} Resume Portpolio` }
 
   return { title: APPLICATION_NAME }
 }
+
+const ProjectCard = ({title, period, description, techs, achievements} : {title:string, period:string, description:string, techs:string[], achievements:string[]}) => (
+    <div className="mb-6 p-4 bg-neutral-900 rounded-lg border border-neutral-700">
+        <div className="flex justify-between whitespace-nowrap gap-4 my-4 text-gray-100">
+          <h4>{title}</h4>
+          <div className="text-gray-300">{period}</div>
+        </div>
+        <div className="text-gray-300">{description}</div>
+
+        <div className="flex flex-wrap gap-1 my-3">
+            {techs.map(tech => <TechBadge key={tech} tech={tech} />)}
+        </div>
+        <ul className="list-disc list-inside space-y-1">
+            {achievements.map(ach => <li key={ach}>{ach}</li>)}
+        </ul>
+    </div>
+)
 
 export default async function HomePage({ params }: PageProps) {
   const lang = (await params).lang as 'ko' | 'en'
@@ -81,7 +98,7 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 개인 프로젝트 */}
+      {/* 프로젝트 */}
       <section id="personal-project" className="mb-12">
         <div className="flex items-center gap-3 mb-6">
           <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,50 +107,46 @@ export default async function HomePage({ params }: PageProps) {
           <h2 className="text-2xl font-bold">{dictionary.project.개인프로젝트[lang]}</h2>
         </div>
 
-        <div className="mb-6 p-4 bg-neutral-900 rounded-lg border border-neutral-700">
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div>
-              <a href="/images/2025-google-analytics.webp" target="_blank" className="text-3xl font-bold text-indigo-300" rel="noreferrer">
-                {dictionary.project.googleAnalytics[lang]}
-              </a>
-              <div className="text-xs text-gray-400">MAU (Google Analytics)</div>
-            </div>
-            <div>
-              <a href="/images/2025-amplitude.webp" target="_blank" className="text-3xl font-bold text-blue-300" rel="noreferrer">
-                {dictionary.project.amplitude[lang]}
-              </a>
-              <div className="text-xs text-gray-400">Day 7 Retention (Amplitude)</div>
-            </div>
-            <div>
-              <a href="/images/2025-cloudflare.webp" target="_blank" className="text-3xl font-bold text-purple-300" rel="noreferrer">
-                {dictionary.project.cloudflareAnalytics[lang]}
-              </a>
-              <div className="text-xs text-gray-400">Data Cached (Cloudflare)</div>
-            </div>
-          </div>
-        </div>
+        <ProjectCard
+            title="중고사자"
+            period="2025.05.02 - 2025.05.08"
+            description={lang === 'ko' ? "지역기반 중고 거래 플랫폼" : "Location-based used trading platform"}
+            techs={['Java 21', 'Spring Boot', 'JPA', 'WebSocket', 'HTML5', 'CSS3', 'JavaScript', 'Thymeleaf', 'MySQL(SSH 터널링)', 'IntelliJ', 'Git', 'Gradle']}
+            achievements={lang === 'ko' ? [
+                "WebSocket 기반 실시간 커뮤니티·1:1 채팅 및 게시글 기반 1:N 채팅 기능 전체 구현",
+                "채팅방 생성·참여·메시지 송수신 구조 설계",
+                "사용자 거래 협의를 위한 지연 없는 실시간 소통 환경 구축",
+                "팀 내 채팅 기능 단독 담당으로 서비스 주요 기능 완성도 향상",
+            ] : [
+                "Full implementation of real-time community, 1:1 chat, and post-based 1:N chat functions based on WebSocket",
+                "Designed the structure for creating, joining, and sending/receiving messages in chat rooms",
+                "Established a real-time communication environment without delay for user transaction negotiations",
+                "Improved the completeness of the service's main functions by exclusively managing the chat function within the team",
+            ]}
+        />
+        
+        <ProjectCard
+            title="Eventory"
+            period="2025.07.24 - 2025.08.22"
+            description={lang === 'ko' ? "SaaS 기반 박람회 관리 플랫폼" : "SaaS-based exhibition management platform"}
+            techs={['Docker', 'Jenkins', 'GitHub Webhook', 'Nginx', 'Prometheus', 'Grafana', 'Spring Boot', 'React', 'Vite', 'MySQL', 'Redis']}
+            achievements={lang === 'ko' ? [
+                "Docker 기반 백엔드·프론트엔드 컨테이너 이미지 자동 빌드 및 배포 구조 구축",
+                "GitHub Webhook + Jenkins를 활용한 CI/CD 파이프라인 설계 및 자동화",
+                "Bridge Network 기반 내부망 구성으로 DB 서버 외부 접근 차단",
+                "Prometheus·Grafana 기반 서버 모니터링 대시보드 구축",
+                "GitHub Webhook 연동으로 배포·장애 실시간 알림 환경 구현",
+                "자동화 파이프라인 구축을 통해 배포 시간 80% 절감 및 서비스 운영 안정성 향상",
+            ] : [
+                " 구축 Established an automated build and deployment structure for backend and frontend container images based on Docker",
+                "Designed and automated CI/CD pipeline using GitHub Webhook + Jenkins",
+                "Blocked external access to the DB server by configuring an internal network based on Bridge Network",
+                "Built a server monitoring dashboard based on Prometheus and Grafana",
+                "Implemented a real-time notification environment for deployment and failures by integrating GitHub Webhook",
+                "Reduced deployment time by 80% and improved service operation stability by establishing an automated pipeline",
+            ]}
+        />
 
-        <div className="flex justify-between whitespace-nowrap gap-4 my-4 text-gray-100">
-          <h4>리토미 (litomi)</h4>
-          <div className="text-gray-300">2025년 3월 1일 ~ 현재</div>
-        </div>
-        <div className="text-gray-300">만화 웹 뷰어</div>
-
-        <div className="flex flex-wrap gap-1 my-3">
-          <TechBadge tech="Next.js App Router" />
-          <TechBadge tech="TailwindCSS" />
-          <TechBadge tech="Drizzle ORM" />
-          <TechBadge tech="PostgreSQL" />
-          <TechBadge tech="Redis" />
-          <TechBadge tech="Docker" />
-          <TechBadge tech="Vercel" />
-          <TechBadge tech="Supabase" />
-          <TechBadge tech="Cloudflare" />
-          <TechBadge tech="Sentry" />
-        </div>
-
-        {/* (아래 프로젝트 상세 카드들은 네가 올린 그대로 유지) */}
-        {/* ... 여기 아래는 길어서 생략하지 않고 그대로 두려면, 네 기존 코드에서 '개인 프로젝트' 섹션 아래 내용은 그대로 놔도 됨 */}
       </section>
 
       {/* 학력 */}
